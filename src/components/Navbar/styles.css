@@ -1,0 +1,12 @@
+.dropdown {
+    max-height: 200px; 
+    overflow-y: auto; 
+    background-color: #1f1f1f; 
+  }
+  
+
+  .dropdown a:hover {
+    background-color: #ff0000;
+    color: white; 
+  }
+  
