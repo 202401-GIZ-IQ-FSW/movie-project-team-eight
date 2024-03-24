@@ -10,3 +10,77 @@
     color: white; 
   }
   
+  .dropdown {
+    background-color: #070a0d; 
+    color: white;
+    position: absolute;
+    left: 0;
+    display: none;
+    z-index: 20;
+    max-height: 192px; 
+    overflow-y: auto; 
+    scrollbar-width: none; 
+  }
+  
+  .dropdown::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+.text-15px { font-size: 15px; } 
+.bg-opacity-80 { background-color: rgba(0, 0, 0, 0.8); } 
+.dropdown {
+  max-height: 200px; 
+  overflow-y: auto; 
+  background-color: #1f1f1f; 
+  position: absolute;
+  left: 0;
+  display: none;
+  z-index: 20;
+  overflow-y: auto; 
+  scrollbar-width: none;
+}
+
+.dropdown a {
+  color: white; 
+  padding: 10px; }
+
+.dropdown a:hover {
+  background-color: #ff0000; 
+}
+
+@media (max-width: 768px) {
+  .navbar { 
+    padding: 15px 5px;
+  }
+
+  .menu-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .search-input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .navbar-menu { 
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown { 
+    width: 100%;
+  }
+}
+
+.dropdown::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
