@@ -91,6 +91,8 @@
   .section-title {
       font-size: 15px;
   }
+
+
 }
 
 .actors-section .slider-item img {
@@ -103,8 +105,56 @@
 
 .actors-section .slider-item .slider-overlay {
   border-radius: 50%; 
-
+margin-left: 3px;
+margin-top:4px;
   width: 255px;
-  height: 255px;
+  height: 250px;
 }
 
+
+@media (max-width: 600px) {
+  .slider-item {
+    margin: 10px;
+  }
+  .actors-section .slider-item img,
+  .actors-section .slider-item .slider-overlay {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+  }
+  .play-now-btn {
+    padding: 8px 16px;
+  }
+  .section-title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-item {
+    margin: 5px;
+  }
+  .actors-section .slider-item img {
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%;
+  }
+  .actors-section .slider-item .slider-overlay{
+
+    width: 123px; 
+    height: 120px; 
+    margin-top:5px;
+    margin-left: 3px;
+    border-radius: 50%;
+  }
+  p {
+    font-size: 10px;
+  }
+  .play-now-btn {
+    padding: 4px 12px;
+    font-size: 9px;
+  }
+  .section-title {
+    font-size: 15px;
+  }
+}
