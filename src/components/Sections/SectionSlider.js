@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
 import './SectionSlider.css'; 
+import Link from 'next/link';
 
 const SectionSlider = ({ title, fetchUrl,extraClass  }) => {
   const [items, setItems] = useState([]);
@@ -84,12 +85,19 @@ return (
   <div className={`section ${extraClass}`}>
     <h2 className="section-title">{title}</h2>
     <Slider {...settings}>
-      {items.map(item => (
+      {items.map((item) => (
         <div key={item.id} className="slider-item">
-          <img src={`https://image.tmdb.org/t/p/w300${item.poster_path || item.profile_path}`} alt={item.title || item.name} />
+          <img
+            src={`https://image.tmdb.org/t/p/w300${
+              item.poster_path || item.profile_path
+            }`}
+            alt={item.title || item.name}
+          />
           <div className="slider-overlay">
             <p className="movie-title">{item.title || item.name}</p>
-            <button className="play-now-btn">Details</button>
+            <Link href={`/movie/${item.id}`} className="play-now-btn">
+              Details
+            </Link>
           </div>
         </div>
       ))}
