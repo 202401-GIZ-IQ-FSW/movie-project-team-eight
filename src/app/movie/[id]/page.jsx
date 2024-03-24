@@ -34,8 +34,8 @@ export default async function MoviePage({ params }) {
   //       return video.key;
   //     }
   //   });
-  const keyArray = videos.results.filter(
-    (video) => video.name === "Official Trailer"
+  const keyArray = videos.results.filter((video) =>
+    video.name.includes("Trailer")
   );
   const key = keyArray[0].key;
   return (

@@ -22,7 +22,6 @@ const Home = () => {
   return (
     <>
       {isLoading && <Loader />} 
-      <Navbar />
       <HeroSection />
       <SectionSlider
         title="Popular Movies"
@@ -50,8 +49,6 @@ const Home = () => {
   fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`}
   extraClass="actors-section"
 />
-
-      <Footer />
     </>
   );
 };
