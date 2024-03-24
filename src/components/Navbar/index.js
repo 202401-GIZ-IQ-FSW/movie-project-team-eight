@@ -16,7 +16,6 @@ const Navbar = () => {
   const moviesOptions = [
     { name: "Top Rated", key: "top_rated" },
     { name: "Popular", key: "popular" },
-    { name: "Latest", key: "latest" },
     { name: "Now Playing", key: "now_playing" },
     { name: "Upcoming", key: "upcoming" },
   ];
@@ -95,7 +94,7 @@ const Navbar = () => {
               {genres.map((genre) => (
                 <a
                   key={genre.id}
-                  href="#"
+                  href={`/genres/${genre.id}`}
                   className="text-white block px-4 py-2 text-sm hover:bg-red-600"
                 >
                   {genre.name}

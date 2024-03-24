@@ -3,10 +3,8 @@ import MovieCast from "@/components/MovieCast";
 import SectionSlider from "@/components/Sections/SectionSlider";
 import Trailer from "@/components/Trailer";
 import Image from "next/image";
-import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { IoLanguageSharp } from "react-icons/io5";
-import { IoMdArrowBack } from "react-icons/io";
 
 export default async function MoviePage({ params }) {
   const movieId = params.id;
@@ -42,12 +40,6 @@ export default async function MoviePage({ params }) {
   const key = keyArray[0].key;
   return (
     <div className="mt-16 w-full">
-      <Link
-        href={"/"}
-        className="flex w-fit gap-1 items-center px-4 py-2 bg-red-600 ml-4 border-0 rounded-md"
-      >
-        <IoMdArrowBack /> <span className="font-semibold pr-1">Back</span>
-      </Link>
       <div className="p-4 sm:pt-8 flex flex-col sm:flex-row content-center max-w-6xl mx-auto sm:space-x-6">
         <Image
           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
