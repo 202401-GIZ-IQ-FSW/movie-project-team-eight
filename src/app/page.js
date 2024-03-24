@@ -1,18 +1,27 @@
-// Inside your Home.js or wherever your main component is
-"use client";
-import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+"use client"
+import React, { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar'; 
 import HeroSection from "../components/HeroSection/HeroSection";
-import SectionSlider from "../components/Sections/SectionSlider";
-import Footer from "@/components/Footer";
-import Loader from "../components/Loader/Loader";
+import SectionSlider from '../components/Sections/SectionSlider'; 
+import Footer from '@/components/Footer';
+import Loader from '../components/Loader/Loader';
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true); 
   const apiKey = "729adca28d6a4301ad60d0d49fbaddde";
+
+  useEffect(() => {
+  
+    const timer = setTimeout(() => {
+      setIsLoading(false); 
+    }, 3000); 
+
+    return () => clearTimeout(timer); 
+  }, []); 
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading && <Loader />} 
       <Navbar />
       <HeroSection />
       <SectionSlider
@@ -36,11 +45,11 @@ const Home = () => {
         fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`} 
       /> */}
 
-      <SectionSlider
-        title="Popular Actors"
-        fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`}
-        extraClass="actors-section"
-      />
+<SectionSlider
+  title="Popular Actors"
+  fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`}
+  extraClass="actors-section"
+/>
 
       <Footer />
     </>

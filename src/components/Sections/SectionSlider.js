@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
 import './SectionSlider.css'; 
 
-const SectionSlider = ({ title, fetchUrl }) => {
+const SectionSlider = ({ title, fetchUrl,extraClass  }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -22,14 +22,16 @@ const SectionSlider = ({ title, fetchUrl }) => {
     fetchData();
   }, [fetchUrl]);
 
-  const settings = {
+  const isActorsSection = extraClass === 'actors-section';
+   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
-    autoplay: false,
-    autoplaySpeed: 3000,
+    autoplay: isActorsSection,
+
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
@@ -52,29 +54,48 @@ const SectionSlider = ({ title, fetchUrl }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false, 
+          infinite: true, 
         }
       }
     ]
   };
   
   
-  return (
-    <div className="section">
-      <h2 className="section-title">{title}</h2>
-      <Slider {...settings}>
-        {items.map(item => (
-          <div key={item.id} className="slider-item">
-            <img src={`https://image.tmdb.org/t/p/w300${item.poster_path || item.profile_path}`} alt={item.title || item.name} />
-            <div className="slider-overlay">
-              <p className="movie-title">{item.title || item.name}</p>
-              <button className="play-now-btn">Details</button>
-            </div>
+  
+//   return (
+//     <div className="section">
+//       <h2 className="section-title">{title}</h2>
+//       <Slider {...settings}>
+//         {items.map(item => (
+//           <div key={item.id} className="slider-item">
+//             <img src={`https://image.tmdb.org/t/p/w300${item.poster_path || item.profile_path}`} alt={item.title || item.name} />
+//             <div className="slider-overlay">
+//               <p className="movie-title">{item.title || item.name}</p>
+//               <button className="play-now-btn">Details</button>
+//             </div>
+//           </div>
+//         ))}
+//       </Slider>
+//     </div>
+//   );
+// };
+
+return (
+  <div className={`section ${extraClass}`}>
+    <h2 className="section-title">{title}</h2>
+    <Slider {...settings}>
+      {items.map(item => (
+        <div key={item.id} className="slider-item">
+          <img src={`https://image.tmdb.org/t/p/w300${item.poster_path || item.profile_path}`} alt={item.title || item.name} />
+          <div className="slider-overlay">
+            <p className="movie-title">{item.title || item.name}</p>
+            <button className="play-now-btn">Details</button>
           </div>
-        ))}
-      </Slider>
-    </div>
-  );
+        </div>
+      ))}
+    </Slider>
+  </div>
+);
 };
 
 export default SectionSlider;
