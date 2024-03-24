@@ -1,13 +1,19 @@
 // Inside your Home.js or wherever your main component is
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection/HeroSection";
 import SectionSlider from "../components/Sections/SectionSlider";
+import Footer from "@/components/Footer";
+import Loader from "../components/Loader/Loader";
 
 const Home = () => {
   const apiKey = "729adca28d6a4301ad60d0d49fbaddde";
 
   return (
     <>
+      {isLoading && <Loader />}
+      <Navbar />
       <HeroSection />
       <SectionSlider
         title="Popular Movies"
@@ -25,10 +31,18 @@ const Home = () => {
         title="Now Playing"
         fetchUrl={`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`}
       />
+      {/* <SectionSlider 
+        title="Popular Actors" 
+        fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`} 
+      /> */}
+
       <SectionSlider
         title="Popular Actors"
         fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`}
+        extraClass="actors-section"
       />
+
+      <Footer />
     </>
   );
 };
