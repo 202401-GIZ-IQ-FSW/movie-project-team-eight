@@ -24,21 +24,21 @@ const Home = () => {
       {isLoading && <Loader />} 
       <Navbar />
       <HeroSection />
-      <SectionSlider 
-        title="Popular Movies" 
-        fetchUrl={`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`} 
+      <SectionSlider
+        title="Popular Movies"
+        fetchUrl={`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`}
       />
-      <SectionSlider 
-        title="Top Rated Movies" 
-        fetchUrl={`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`} 
+      <SectionSlider
+        title="Top Rated Movies"
+        fetchUrl={`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`}
       />
-      <SectionSlider 
-        title="Upcoming Movies" 
-        fetchUrl={`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`} 
+      <SectionSlider
+        title="Upcoming Movies"
+        fetchUrl={`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`}
       />
-      <SectionSlider 
-        title="Now Playing" 
-        fetchUrl={`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`} 
+      <SectionSlider
+        title="Now Playing"
+        fetchUrl={`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`}
       />
       {/* <SectionSlider 
         title="Popular Actors" 
@@ -50,7 +50,6 @@ const Home = () => {
   fetchUrl={`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`}
   extraClass="actors-section"
 />
-
 
       <Footer />
     </>
