@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import "./styles.css";
 import {
   SearchIcon,
@@ -41,6 +42,12 @@ const Navbar = () => {
     fetchGenres();
   }, []);
 
+  const [search, setSearch] = useState("");
+  const router = useRouter();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search/${search}`);
+  };
   return (
     <header className="bg-black bg-opacity-80 py-3 px-6 sm:px-10 font-sans-serif shadow-lg fixed w-full z-50 top-0 transition-colors duration-300">
       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -61,14 +68,19 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="relative flex items-center lg:ml-auto lg:order-1">
+        <form
+          onSubmit={handleSubmit}
+          className="relative flex items-center lg:ml-auto lg:order-1"
+        >
           <SearchIcon className="w-5 h-5 text-gray-300 absolute ml-2 pointer-events-none" />
           <input
             type="text"
             placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             className="pl-10 pr-2 bg-transparent border-2 border-gray-300 text-sm w-32 md:w-64 lg:w-auto text-gray-300 rounded-full h-9 outline-none mx-auto"
           />
-        </div>
+        </form>
 
         <ul
           className={`lg:flex ${
