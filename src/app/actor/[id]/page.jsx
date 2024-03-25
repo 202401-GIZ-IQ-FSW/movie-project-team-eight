@@ -17,8 +17,8 @@ export default async function Page({ params }) {
 
         // Render actor details
         return (
-            <div className='w-full'>
-                <div className='p-4 md:pt-8 flex flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6'>
+            <div className='w-full mt-5'>
+                <div className='p-4 md:pt-8 mt-8 flex flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6'>
                     <img
                         src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
                         alt={actor.name}
@@ -28,15 +28,22 @@ export default async function Page({ params }) {
                         style={{maxWidth: '100%' , height: '100%'}}
                     />
                     <div className='p-2'>
-                        <h2 className='text-lg mb-3 font-bold'>{actor.name}</h2>
-                        <p className='text-lg mb-3'>{actor.biography}</p>
+                        <h2 className='text-2xl mb-3 font-bold text-red-700'>{actor.name}</h2>
                         <p className='mb-3'>
-                            <span className='font-semibold mr-1'>Birthday:</span>{actor.birthday}</p>
+                            <span className='font-semibold mr-1 text-red-700'>Also Known As:</span>{actor.also_known_as.join(', ')}</p>
+                            <p className='text-lg mb-3'>{actor.biography}</p>
                         <p className='mb-3'>
-                            <span className='font-semibold mr-1'>Known For:</span>{actor.known_for_department}</p>
+                            <span className='font-semibold mr-1 text-red-700' >Birthday:</span>{actor.birthday}</p>
+                            <p className='mb-3'>
+                            <span className='font-semibold mr-1 text-red-700'>Place of Birth:</span>{actor.place_of_birth}</p>
                         <p className='mb-3'>
-                            <span className='font-semibold mr-1'>IMDb ID:</span><a href={`https://www.imdb.com/name/${actor.imdb_id}`} target="_blank" rel="noreferrer">{actor.imdb_id}</a></p>
-                        {actor.homepage && <p className='mb-3'><span className='font-semibold mr-1'>Homepage:</span> <a href={actor.homepage} target="_blank" rel="noreferrer">{actor.homepage}</a></p>}
+                            <span className='font-semibold mr-1 text-red-700'>Gender:</span>{actor.gender === 1 ? 'Female' : 'Male'}</p>
+                        
+                       
+                        <p className='mb-3'>
+                            <span className='font-semibold mr-1 text-red-700'>Known For:</span>{actor.known_for_department}</p>
+                       
+                        
                     </div>
                 </div>
             </div>
