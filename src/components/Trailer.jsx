@@ -9,5 +9,5 @@ const opts = {
   },
 };
 export default function Trailer({ key }) {
-  return <YouTube videoId={`${key}`} opts={opts} />;
+  return <YouTube videoId={`=${key}`} opts={opts} />;
 }

@@ -101,7 +101,7 @@
 
 import Companies from "@/components/Companies";
 import MovieCast from "@/components/MovieCast";
-import SectionSlider from "@/components/Sections/SectionSlider";
+import SectionSlider from "@/components/Sections/MovieSectionSlider";
 import Trailer from "@/components/Trailer";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
@@ -129,7 +129,9 @@ export default async function MoviePage({ params }) {
     `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=729adca28d6a4301ad60d0d49fbaddde`
   );
   const videos = await result.json();
-  const keyArray = videos.results.filter((video) => video.name.includes("Trailer"));
+  const keyArray = videos.results.filter((video) =>
+    video.name.includes("Trailer")
+  );
   const videoKey = keyArray.length > 0 ? keyArray[0].key : null;
 
   return (
@@ -152,7 +154,8 @@ export default async function MoviePage({ params }) {
               </span>
               |
               <span>
-                {movie.release_date.slice(0, 4) || movie.first_air_date.slice(0, 4)}
+                {movie.release_date.slice(0, 4) ||
+                  movie.first_air_date.slice(0, 4)}
               </span>
               |<span>{movie.runtime}min</span>|
               <span className="flex gap-1 items-center">
@@ -174,7 +177,11 @@ export default async function MoviePage({ params }) {
           </div>
           <div className="flex flex-col gap-3">
             <b className="text-red-700">Trailer:</b>
-            {videoKey ? <Trailer videoKey={videoKey} /> : <p>No Trailer Available</p>}
+            {videoKey ? (
+              <Trailer videoKey={videoKey} />
+            ) : (
+              <p>No Trailer Available</p>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <b className="text-red-700">Producers:</b>
@@ -187,8 +194,7 @@ export default async function MoviePage({ params }) {
       <SectionSlider
         title="Similar Movies"
         fetchUrl={`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=729adca28d6a4301ad60d0d49fbaddde`}
-        />
-      </div>
-    );
-  }
-  
+      />
+    </div>
+  );
+}
