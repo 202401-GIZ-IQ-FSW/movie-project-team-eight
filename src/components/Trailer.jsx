@@ -8,6 +8,6 @@ const opts = {
     autoplay: 0,
   },
 };
-export default function Trailer({ key }) {
-  return <YouTube videoId={`=${key}`} opts={opts} />;
+export default function Trailer({ videoKey }) {
+  return <YouTube videoId={videoKey} opts={opts} />;
 }
