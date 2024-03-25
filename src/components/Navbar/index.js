@@ -77,7 +77,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <a href="#" className='text-gray-300 hover:text-red-600 text-15px flex items-center'>Actors</a>
+            <a href="/popularActors" className='text-gray-300 hover:text-red-600 text-15px flex items-center'>Actors</a>
           </li>
         </ul>
       </div>
