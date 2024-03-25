@@ -135,7 +135,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="/actors"
               className="text-gray-300 hover:text-red-600 text-15px flex items-center"
             >
               Actors
