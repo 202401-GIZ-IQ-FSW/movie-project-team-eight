@@ -104,13 +104,13 @@ const Navbar = () => {
             </a>
             <div className="dropdown absolute left-0 hidden group-hover:block bg-gray-700 z-20 overflow-y-auto max-h-48">
               {genres.map((genre) => (
-                <a
+                <Link
                   key={genre.id}
                   href={`/genres/${genre.id}`}
                   className="text-white block px-4 py-2 text-sm hover:bg-red-600"
                 >
                   {genre.name}
-                </a>
+                </Link>
               ))}
             </div>
           </li>
@@ -123,23 +123,23 @@ const Navbar = () => {
             </a>
             <div className="dropdown absolute left-0 hidden group-hover:block bg-gray-700 z-20">
               {moviesOptions.map((option, index) => (
-                <a
+                <Link
                   key={index}
                   href={`/movies/${option.key}`}
                   className="text-white block px-4 py-2 text-sm hover:bg-red-600"
                 >
                   {option.name}
-                </a>
+                </Link>
               ))}
             </div>
           </li>
           <li>
-            <a
+            <Link
               href="/actors"
               className="text-gray-300 hover:text-red-600 text-15px flex items-center"
             >
               Actors
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

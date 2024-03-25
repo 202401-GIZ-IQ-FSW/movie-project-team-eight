@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import HeroSection from "../components/HeroSection/HeroSection";
-import Loader from "../components/Loader/Loader";
 import ActorSectionSlider from "@/components/Sections/ActorSectionSlider";
 import MovieSectionSlider from "../components/Sections/MovieSectionSlider";
 
@@ -19,7 +18,6 @@ const Home = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
       <HeroSection />
       <MovieSectionSlider
         title="Popular Movies"
