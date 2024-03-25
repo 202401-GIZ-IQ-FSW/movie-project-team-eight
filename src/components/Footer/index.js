@@ -15,8 +15,8 @@ const Footer = () => {
     },
     {
       name: 'Jwan Kareem Jebur',
-      linkedin: '#', 
-      github: '#', 
+      linkedin: 'https://www.linkedin.com/in/jwan-kareem-67b32b2b7', 
+      github: 'https://github.com/jwann2002', 
     },
   ];
 
