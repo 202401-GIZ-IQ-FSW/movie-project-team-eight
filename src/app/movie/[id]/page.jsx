@@ -1,6 +1,6 @@
 import Companies from "@/components/Companies";
 import MovieCast from "@/components/MovieCast";
-import SectionSlider from "@/components/Sections/SectionSlider";
+import SectionSlider from "@/components/Sections/MovieSectionSlider";
 import Trailer from "@/components/Trailer";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
@@ -23,21 +23,16 @@ export default async function MoviePage({ params }) {
     }
   });
   const cast = credits.cast.slice(0, 5);
-  //   console.log(cast);
 
   const result = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=729adca28d6a4301ad60d0d49fbaddde`
   );
   const videos = await result.json();
-  //   const key = videos.results.map((video) => {
-  //     if (video.name === "Official Trailer") {
-  //       return video.key;
-  //     }
-  //   });
-  const keyArray = videos.results.filter(
-    (video) => video.name === "Official Trailer"
+  const keyArray = videos.results.filter((video) =>
+    video.name.includes("Trailer")
   );
-  const key = keyArray[0].key;
+  const videoKey = keyArray.length > 0 ? keyArray[0].key : null;
+
   return (
     <div className="mt-16 w-full">
       <div className="p-4 sm:pt-8 flex flex-col sm:flex-row content-center max-w-6xl mx-auto sm:space-x-6">
@@ -71,7 +66,7 @@ export default async function MoviePage({ params }) {
             <span className=" font-medium">{movie.overview}</span>
           </p>
           <p className="mb-3">
-            <b>Direrctor:</b> {direrctor}
+            <b>Director:</b> {direrctor}
           </p>
           <div className="flex flex-col gap-3 mb-3">
             <b className="text-red-700">Actors:</b>
@@ -81,7 +76,11 @@ export default async function MoviePage({ params }) {
           </div>
           <div className="flex flex-col gap-3">
             <b className="text-red-700">Trailer:</b>
-            <Trailer key={key} />
+            {videoKey ? (
+              <Trailer videoKey={videoKey} />
+            ) : (
+              <p>No Trailer Available</p>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <b className="text-red-700">Producers:</b>

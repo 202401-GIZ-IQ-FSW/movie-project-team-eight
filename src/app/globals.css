@@ -11,6 +11,12 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
