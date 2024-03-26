@@ -1,5 +1,6 @@
 import Companies from "@/components/Companies";
 import MovieCast from "@/components/MovieCast";
+import Overview from "@/components/Overview";
 import SectionSlider from "@/components/Sections/MovieSectionSlider";
 import Trailer from "@/components/Trailer";
 import Image from "next/image";
@@ -62,8 +63,8 @@ export default async function MoviePage({ params }) {
               </span>
             </p>
           </div>
-          <p className="flex flex-col gap-1 text-lg mb-3">
-            <span className=" font-medium">{movie.overview}</span>
+          <p className="text-md mb-3">
+            <Overview overview={movie.overview} />
           </p>
           <p className="mb-3">
             <b>Director:</b> {direrctor}
