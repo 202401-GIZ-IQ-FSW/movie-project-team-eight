@@ -1,10 +1,16 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MovieCast({ cast }) {
   return (
     <>
       {cast.map((actor) => (
-        <div key={actor.id} className="flex flex-col items-center ">
+        <Link
+          href={`/actor/${actor.id}`}
+          key={actor.id}
+          className="flex flex-col items-center "
+        >
           <Image
             src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
             width={50}
@@ -12,7 +18,7 @@ export default function MovieCast({ cast }) {
             className="rounded-full h-16 w-16 object-cover"
           />
           <span className=" font-light text-center">{actor.original_name}</span>
-        </div>
+        </Link>
       ))}
     </>
   );

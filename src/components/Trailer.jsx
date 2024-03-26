@@ -9,5 +9,5 @@ const opts = {
   },
 };
 export default function Trailer({ videoKey }) {
-  return <YouTube videoId={videoKey} opts={opts} />;
+  return <YouTube className="h-full" videoId={videoKey} opts={opts} />;
 }

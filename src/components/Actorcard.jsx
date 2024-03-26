@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import "./Sections/SectionSlider.css";
+import Link from "next/link";
 
 export default function MovieCard({ actors }) {
   return (
@@ -15,9 +16,9 @@ export default function MovieCard({ actors }) {
           />
           <div className="slider-overlay">
             <p className="movie-title">{actor.name}</p>
-            <a href={`/actor/${actor.id}`} className="play-now-btn">
+            <Link href={`/actor/${actor.id}`} className="play-now-btn">
               Details
-            </a>
+            </Link>
           </div>
         </div>
       ))}

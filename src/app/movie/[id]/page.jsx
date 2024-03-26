@@ -36,12 +36,12 @@ export default async function MoviePage({ params }) {
 
   return (
     <div className="mt-16 w-full">
-      <div className="p-4 sm:pt-8 flex flex-col sm:flex-row content-center max-w-6xl mx-auto sm:space-x-6">
+      <div className="p-4 sm:pt-8 flex flex-col lg:flex-row content-center max-w-6xl mx-auto sm:space-x-6">
         <Image
           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
           width={500}
           height={300}
-          className="rounded-lg max-w-full h-full"
+          className="rounded-lg max-w-full h-full self-center lg:self-start"
         />
         <div className="p-2">
           <div className="flex flex-col justify-between mb-4">
@@ -75,7 +75,7 @@ export default async function MoviePage({ params }) {
               <MovieCast cast={cast} />
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className=" h-80 mb-4 flex flex-col gap-3">
             <b className="text-red-700">Trailer:</b>
             {videoKey ? (
               <Trailer videoKey={videoKey} />
@@ -85,7 +85,7 @@ export default async function MoviePage({ params }) {
           </div>
           <div className="flex flex-col gap-3">
             <b className="text-red-700">Producers:</b>
-            <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 w-full">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 w-full">
               <Companies companies={movie.production_companies} />
             </div>
           </div>
