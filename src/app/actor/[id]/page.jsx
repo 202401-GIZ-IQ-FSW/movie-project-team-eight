@@ -1,6 +1,5 @@
 "use client";
 import Overview from "@/components/Overview";
-import React, { useState } from "react";
 
 export default async function Page({ params }) {
   const actorID = params.id;

@@ -45,6 +45,8 @@ const HeroSection = () => {
           >
             <Image
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+              width={1440}
+              height={960}
               alt={movie.title}
               key={movie.id}
               className="w-full h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
