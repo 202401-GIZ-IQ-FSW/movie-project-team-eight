@@ -27,7 +27,7 @@ const MovieSectionSlider = ({ title, fetchUrl, extraClass }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 5000,
+    speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
     autoplay: isActorsSection,
@@ -39,7 +39,7 @@ const MovieSectionSlider = ({ title, fetchUrl, extraClass }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false,
+          infinite: true,
         },
       },
       {
@@ -47,7 +47,7 @@ const MovieSectionSlider = ({ title, fetchUrl, extraClass }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false,
+          infinite: true,
         },
       },
       {
@@ -84,7 +84,10 @@ const MovieSectionSlider = ({ title, fetchUrl, extraClass }) => {
       <h2 className="section-title">{title}</h2>
       <Slider {...settings}>
         {items.map((item) => (
-          <div key={item.id} className="slider-item">
+          <div
+            key={item.id}
+            className="slider-item hover:cursor-grab active:cursor-grabbing"
+          >
             <img
               src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
               alt={item.title}
