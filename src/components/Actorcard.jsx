@@ -13,6 +13,7 @@ export default function MovieCard({ actors }) {
             width={200}
             height={300}
             className=" object-cover rounded-md"
+            alt="Actor profile picture"
           />
           <div className="slider-overlay">
             <p className="movie-title">{actor.name}</p>

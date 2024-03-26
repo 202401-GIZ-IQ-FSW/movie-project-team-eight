@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import axios from "axios";
 import "./HeroSection.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const HeroSection = () => {
   const [movies, setMovies] = useState([]);
@@ -42,9 +43,10 @@ const HeroSection = () => {
             key={movie.id}
             className="relative h-96 md:h-[500px] lg:h-[500px] overflow-hidden"
           >
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
               alt={movie.title}
+              key={movie.id}
               className="w-full h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             />
             <div className="absolute bottom-10 md:bottom-20 left-0 p-4 md:p-8 w-full">

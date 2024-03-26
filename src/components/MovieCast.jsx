@@ -16,6 +16,7 @@ export default function MovieCast({ cast }) {
             width={50}
             height={50}
             className="rounded-full h-16 w-16 object-cover"
+            alt="Actor profile picture"
           />
           <span className=" font-light text-center">{actor.original_name}</span>
         </Link>

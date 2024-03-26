@@ -94,7 +94,7 @@ const MovieSectionSlider = ({ title, fetchUrl, extraClass }) => {
             />
             <div className="slider-overlay">
               <p className="movie-title">{item.title}</p>
-              <Link href={`/movie/${item.id}`} className="play-now-btn">
+              <Link key={item.id} href={`/movie/${item.id}`} className="play-now-btn">
                 Details
               </Link>
             </div>

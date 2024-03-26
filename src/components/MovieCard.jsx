@@ -12,6 +12,7 @@ export default function MovieCard({ movies }) {
             width={200}
             height={300}
             className=" object-cover rounded-md"
+            alt="Movie Poster"
           />
           <div className="slider-overlay">
             <p className="movie-title">{movie.title}</p>

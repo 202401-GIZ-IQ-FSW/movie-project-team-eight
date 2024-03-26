@@ -10,6 +10,8 @@ export default function Companies({ companies }) {
             width={50}
             height={50}
             className="rounded-full h-8 w-8 object-cover"
+            alt="Company Logo"
+            key={company.id}
           />
           <span className="text-sm">{company.name}</span>
         </div>
